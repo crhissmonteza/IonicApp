@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Tareas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let tarea of tareas">
+      <ion-label>
+        <h2>{{ tarea.titulo }}</h2>
+        <p>{{ tarea.descripcion }}</p>
+      </ion-label>
+      <ion-button fill="outline" slot="end" (click)="eliminarTarea(tarea)">Eliminar</ion-button>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="full" routerLink="/nueva-tarea">Agregar Nueva Tarea</ion-button>
+</ion-content>
+
+
+
+
+
