@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
 import { NuevaTareaPage } from './nueva-tarea.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: NuevaTareaPage
-  }
+    component: NuevaTareaPage,
+  },
 ];
 
 @NgModule({
@@ -15,3 +14,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class NuevaTareaPageRoutingModule {}
+

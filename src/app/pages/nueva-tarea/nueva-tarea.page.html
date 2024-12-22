@@ -4,20 +4,59 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+  <!-- Campo de entrada para el título de la tarea -->
   <ion-item>
     <ion-label position="floating">Título</ion-label>
-    <ion-input [(ngModel)]="titulo"></ion-input>
+    <ion-input [(ngModel)]="nuevaTarea.titulo" placeholder="Ingresa el título"></ion-input>
   </ion-item>
+
+  <!-- Campo de entrada para la descripción de la tarea -->
   <ion-item>
     <ion-label position="floating">Descripción</ion-label>
-    <ion-input [(ngModel)]="descripcion"></ion-input>
+    <ion-textarea [(ngModel)]="nuevaTarea.descripcion" placeholder="Ingresa la descripción"></ion-textarea>
   </ion-item>
-  <ion-button expand="full" (click)="agregarTarea()">Guardar Tarea</ion-button>
-  <ion-button expand="full" routerLink="/lista-tareas">Ver Lista de Tareas</ion-button>
+
+  <!-- Botón para capturar una imagen -->
+  <ion-button expand="block" color="secondary" (click)="capturarImagen()">Capturar Imagen</ion-button>
+
+  <!-- Vista previa de la imagen capturada -->
+  <div *ngIf="nuevaTarea.imagen" class="imagen-capturada">
+    <img [src]="nuevaTarea.imagen" alt="Imagen Capturada">
+  </div>
+
+  <!-- Botón para obtener la ubicación -->
+  <ion-button expand="block" color="tertiary" (click)="obtenerUbicacion()">Obtener Ubicación</ion-button>
+
+  <!-- Muestra la ubicación si ha sido capturada -->
+  <ion-item *ngIf="nuevaTarea.ubicacion">
+    <ion-label>Ubicación:</ion-label>
+    <p>{{ nuevaTarea.ubicacion }}</p>
+  </ion-item>
+
+  <!-- Botón para guardar la tarea -->
+  <ion-button expand="block" color="primary" (click)="agregarTarea()">Guardar Tarea</ion-button>
+
+  <!-- Botones para la navegación -->
+  <ion-button expand="block" color="light" routerLink="/lista-tareas">Ver Lista de Tareas</ion-button>
+  <ion-button expand="block" color="light" routerLink="/home">Volver a Home</ion-button>
+
 </ion-content>
 
+<!-- Estilos opcionales para mejorar la presentación -->
+<style>
+  .imagen-capturada {
+    text-align: center;
+    margin: 20px 0;
+  }
 
-<!-- Boton navegacion -->
-<ion-button routerLink="/lista-tareas">Ver Lista de Tareas</ion-button>
-<ion-button routerLink="/home">Volver a Home</ion-button>
+  .imagen-capturada img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+</style>
+
+
+
